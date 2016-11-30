@@ -1,0 +1,20 @@
+﻿<div class="container">
+    <div data-bind="if: $data.isVisible()">
+        <div class="row text-center">
+            <h2 data-bind="text: $data.title" style="text-transform: capitalize;"></h2>
+            <br />
+
+            @Html.Partial(Url.Content("siren/properties.cshtml"))
+        </div>
+    </div>
+
+    <div class="text-center wow fadeInUp animated" data-wow-delay="3s">
+        <div class="row">
+            @Html.Partial(Url.Content("siren/actions.cshtml"))
+        </div>
+
+        <div class="row">
+            @Html.Partial(Url.Content("siren/links.cshtml"))
+        </div>
+    </div>
+</div>

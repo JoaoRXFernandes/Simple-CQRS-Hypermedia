@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F29C1905-F1A2-4F24-84D9-97CC74122ED6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Bootstrappers.StructureMap, Version=1.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Bootstrappers.StructureMap.1.4.3\lib\net45\Nancy.Bootstrappers.StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Aspnet, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.1.4.1\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Validation.FluentValidation, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Validation.FluentValidation.1.4.1\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.1.4.3\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.4.2.472, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.2\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Infrastructure\Errors\ErrorHandler.cs" />
+    <Compile Include="Api\Infrastructure\Errors\NotFoundErrorHandler.cs" />
+    <Compile Include="Api\Infrastructure\Errors\Responses\BadRequestResponse.cs" />
+    <Compile Include="Api\Infrastructure\Errors\Responses\InternalServerErrorResponse.cs" />
+    <Compile Include="Api\Infrastructure\Errors\Responses\NotFoundResponse.cs" />
+    <Compile Include="Api\Infrastructure\Exceptions\HypermediaEngineException.cs" />
+    <Compile Include="Api\Infrastructure\Exceptions\ValidationException.cs" />
+    <Compile Include="Api\Infrastructure\Extensions\NancyContextExtensions.cs" />
+    <Compile Include="Api\Infrastructure\Extensions\NancyModuleExtensions.cs" />
+    <Compile Include="Api\Infrastructure\Modules\SecureApiModule.cs" />
+    <Compile Include="Api\Infrastructure\Requests\Actions\ApiAction.cs" />
+    <Compile Include="Api\Infrastructure\Requests\Actions\ApiActionValidator.cs" />
+    <Compile Include="Api\Infrastructure\Requests\ApiRequest.cs" />
+    <Compile Include="Api\Infrastructure\Requests\Links\ApiLink.cs" />
+    <Compile Include="Api\Infrastructure\Requests\Links\ApiLinkPaged.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Actions\ActionsFactory.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Actions\IWithAction.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Actions\WithAction.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Actions\WithActionField.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Links\LinksFactory.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Links\PagedProperties.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Links\WithLink.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Responses\SuccessResponse.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Siren\Action.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Siren\Entity.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Siren\Extensions\StringExtensions.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Siren\Field.cs" />
+    <Compile Include="Api\Infrastructure\Siren\Siren\Link.cs" />
+    <Compile Include="Api\Modules\Inventory\Add\AddInventoryItemActionValidator.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\AddQuantity\AddInventoryItemQuantityActionValidator.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\AddQuantity\AddInventoryItemQuantityAction.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\Get\InventoryItem.cs" />
+    <Compile Include="Api\Modules\Inventory\Add\AddInventoryItemAction.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\RemoveQuantity\RemoveInventoryItemQuantityActionValidator.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\RemoveQuantity\RemoveInventoryItemQuantityAction.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\Rename\RenameInventoryItemActionValidator.cs" />
+    <Compile Include="Api\Modules\Inventory\List\GetInventoryLink.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\Get\GetInventoryItemLink.cs" />
+    <Compile Include="Api\Modules\Inventory\List\InventoryCollection.cs" />
+    <Compile Include="Api\Modules\Inventory\List\InventoryCollectionItem.cs" />
+    <Compile Include="Api\Modules\Inventory\Remove\RemoveInventoryItemAction.cs" />
+    <Compile Include="Api\Modules\Inventory\Items\Rename\RenameInventoryItemAction.cs" />
+    <Compile Include="Api\Modules\Inventory\Remove\RemoveInventoryItemActionValidator.cs" />
+    <Compile Include="Api\Modules\Root\Get\GetRoot.cs" />
+    <Compile Include="Api\Modules\Root\Get\Root.cs" />
+    <Compile Include="Api\Modules\Root\RootModule.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Api\Modules\Inventory\InventoryModule.cs" />
+    <Compile Include="Api\Infrastructure\CustomJsonSerializer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Website\Infrastructure\RazorConfiguration.cs" />
+    <Compile Include="Website\WebsiteModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Website\Scripts\Vendor\knockout.validation.js" />
+    <Content Include="Website\Scripts\Vendor\knockout.validation.min.js" />
+    <Content Include="Website\Scripts\Siren\Action.js" />
+    <Content Include="Website\Scripts\Siren\Entities\Collections\CollectionEntity.js" />
+    <Content Include="Website\Scripts\Siren\Entities\Collections\CollectionEntityItem.js" />
+    <Content Include="Website\Scripts\Siren\Entities\ActionEntity.js" />
+    <Content Include="Website\Scripts\Siren\Entities\Root\Menu.js" />
+    <Content Include="Website\Scripts\Siren\Entities\Root\Root.js" />
+    <Content Include="Website\Scripts\Siren\Entity.js" />
+    <Content Include="Website\Scripts\Siren\Field.js" />
+    <Content Include="Website\Scripts\Siren\Link.js" />
+    <Content Include="Website\Scripts\Siren\Actions\Fields\MultiSelectField.js" />
+    <Content Include="Website\Scripts\Siren\Actions\Fields\MultiSelectFieldOption.js" />
+    <Content Include="Website\Scripts\Siren\Properties.js" />
+    <Content Include="Website\Styles\Actions\Fields\multiSelectField.css" />
+    <Content Include="Website\Styles\animate.css" />
+    <Content Include="Website\Styles\animate.min.css" />
+    <Content Include="Website\Styles\CollectionEntity\collectionEntity.css" />
+    <Content Include="Website\Styles\font-awesome.css" />
+    <Content Include="Website\Styles\font-awesome.min.css" />
+    <Content Include="Website\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Website\Styles\bootstrap-theme.css" />
+    <Content Include="Website\Styles\bootstrap-theme.min.css" />
+    <Content Include="Website\Styles\bootstrap.css" />
+    <Content Include="Website\Styles\bootstrap.min.css" />
+    <Content Include="Website\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Website\Scripts\Application.js" />
+    <Content Include="Website\Scripts\Knockout\ForEachPropertyBinding.js" />
+    <Content Include="Website\Scripts\Knockout\Mapping\SirenMappings.js" />
+    <Content Include="Website\Scripts\Knockout\ModalBinding.js" />
+    <Content Include="Website\Scripts\Vendor\bootstrap.js" />
+    <Content Include="Website\Scripts\Vendor\bootstrap.min.js" />
+    <Content Include="Website\Styles\bootstrap-theme.css.map" />
+    <Content Include="Website\Styles\bootstrap-theme.min.css.map" />
+    <Content Include="Website\Styles\bootstrap.css.map" />
+    <Content Include="Website\Styles\bootstrap.min.css.map" />
+    <Content Include="Website\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.min.map" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.slim.min.map" />
+    <Content Include="Website\Fonts\FontAwesome.otf" />
+    <Content Include="Website\Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Website\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Website\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Website\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Website\Scripts\Vendor\knockout.validation.min.js.map" />
+    <None Include="Website\Scripts\Vendor\jquery-3.1.1.intellisense.js" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.js" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.min.js" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.slim.js" />
+    <Content Include="Website\Scripts\Vendor\jquery-3.1.1.slim.min.js" />
+    <Content Include="Website\Scripts\Vendor\knockout-3.4.0.debug.js" />
+    <Content Include="Website\Scripts\Vendor\knockout-3.4.0.js" />
+    <Content Include="Website\Scripts\Vendor\knockout-switch-case.js" />
+    <Content Include="Website\Scripts\Vendor\knockout-switch-case.min.js" />
+    <Content Include="Website\Scripts\Vendor\knockout.mapping-latest.debug.js" />
+    <Content Include="Website\Scripts\Vendor\knockout.mapping-latest.js" />
+    <Content Include="Website\Scripts\Vendor\knockstrap.js" />
+    <Content Include="Website\Scripts\Vendor\knockstrap.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Website\Scripts\Vendor\moment-with-locales.js" />
+    <Content Include="Website\Scripts\Vendor\moment-with-locales.min.js" />
+    <Content Include="Website\Scripts\Vendor\moment.js" />
+    <Content Include="Website\Scripts\Vendor\moment.min.js" />
+    <Content Include="Website\Scripts\Vendor\underscore.js" />
+    <Content Include="Website\Scripts\Vendor\underscore.min.js" />
+    <Content Include="Website\Scripts\Vendor\wow.min.js" />
+    <Content Include="Website\Scripts\Vendor\_references.js" />
+    <Content Include="Website\Views\Siren\Actions.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\ActiveAction.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\ActiveActionLinks.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\Fields\MultiSelectField.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\Fields\TextField.cshtml" />
+    <Content Include="Website\Views\Siren\CollectionEntity.cshtml" />
+    <Content Include="Website\Views\Siren\Entity.cshtml" />
+    <Content Include="Website\Views\Siren\Properties.cshtml" />
+    <Content Include="Website\Views\Index.cshtml" />
+    <Content Include="Website\Scripts\Vendor\underscore.min.map" />
+    <Content Include="Website\Views\Siren\Links.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\Fields\NumberField.cshtml" />
+    <Content Include="Website\Views\Siren\Actions\Fields\SelectField.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commands\Commands\Commands.csproj">
+      <Project>{577b6988-5e7c-4e10-b144-1fcfdcfdf735}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commands\Handlers\Commands.Handlers.csproj">
+      <Project>{65a9a69b-c58c-440c-828c-28ac5eb0f571}</Project>
+      <Name>Commands.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{4d60b98d-e114-44ed-a195-cc9cff3e255f}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events\Events.csproj">
+      <Project>{b56b7e68-bb0f-4ea0-9e82-7fb97be747ff}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Subscribers\Events.Subscribers.csproj">
+      <Project>{cf005d8f-8c01-415f-806f-f47d21496047}</Project>
+      <Name>Events.Subscribers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Commands\Bus\Infrastructure.CQRS.Commands.Bus.csproj">
+      <Project>{ba37d4ec-9015-4f31-a08b-3cb76106568b}</Project>
+      <Name>Infrastructure.CQRS.Commands.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Commands\Commands\Infrastructure.CQRS.Commands.csproj">
+      <Project>{f6a05de5-7e7a-455e-ba1e-d9fbb27f634c}</Project>
+      <Name>Infrastructure.CQRS.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Commands\Handlers\Infrastructure.CQRS.Commands.Handlers.csproj">
+      <Project>{d9357f83-500f-46fb-8187-c36e009f1241}</Project>
+      <Name>Infrastructure.CQRS.Commands.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Commands\Repository\Infrastructure.CQRS.Commands.Repository.csproj">
+      <Project>{8d4f88ec-acd0-4c30-b4c2-87cf4b146c4b}</Project>
+      <Name>Infrastructure.CQRS.Commands.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\DataStores\EventStore\Infrastructure.CQRS.EventStore.csproj">
+      <Project>{b6039c89-0f93-4c5c-a4a2-36d9a6955e39}</Project>
+      <Name>Infrastructure.CQRS.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\DataStores\ReadStore\DocumentDb\Infrastructure.CQRS.ReadStore.DocumentDb.csproj">
+      <Project>{749eb67f-25ac-46e3-a449-1f2ab0aba360}</Project>
+      <Name>Infrastructure.CQRS.ReadStore.DocumentDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Domain\Infrastructure.CQRS.Domain.csproj">
+      <Project>{e760a16c-8482-425d-977b-fb2287859fcc}</Project>
+      <Name>Infrastructure.CQRS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Events\Events\Infrastructure.CQRS.Events.csproj">
+      <Project>{5df68482-490b-4509-8c3a-c30e197c29f2}</Project>
+      <Name>Infrastructure.CQRS.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Events\Publisher\Infrastructure.CQRS.Events.Publisher.csproj">
+      <Project>{807245c1-e8a7-4757-92ea-b67feb279577}</Project>
+      <Name>Infrastructure.CQRS.Events.Publisher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Events\Subscribers\Infrastructure.CQRS.Events.Subscribers.csproj">
+      <Project>{a63ac8d5-c622-46cd-81c5-87d624d016fc}</Project>
+      <Name>Infrastructure.CQRS.Events.Subscribers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Queries\Handlers\Infrastructure.CQRS.Queries.Handlers.csproj">
+      <Project>{097a57e3-fc95-449d-a76d-22d0276ecc74}</Project>
+      <Name>Infrastructure.CQRS.Queries.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Queries\Processor\Infrastructure.CQRS.Queries.Processor.csproj">
+      <Project>{902cadba-1b3f-4e31-a6ce-5071fe68ce78}</Project>
+      <Name>Infrastructure.CQRS.Queries.Processor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\CQRS\Queries\Queries\Infrastructure.CQRS.Queries.csproj">
+      <Project>{ef3f935c-b901-487e-b35c-8b061b158213}</Project>
+      <Name>Infrastructure.CQRS.Queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\InMemory\Commands\Bus\Infrastructure.InMemory.Commands.Bus.csproj">
+      <Project>{a56d573c-1257-416b-a86f-47d257207367}</Project>
+      <Name>Infrastructure.InMemory.Commands.Bus</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\InMemory\DataStores\EventStore\Infrastructure.InMemory.EventStore.csproj">
+      <Project>{06833d5b-5cd0-492f-9e6e-20e419fe2b92}</Project>
+      <Name>Infrastructure.InMemory.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\InMemory\DataStores\ReadStore\DocumentDb\Infrastructure.InMemory.ReadStore.DocumentDb.csproj">
+      <Project>{2f0ebc0c-7fae-4a8b-bca8-8bf0ab94e271}</Project>
+      <Name>Infrastructure.InMemory.ReadStore.DocumentDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\InMemory\Events\Publisher\Infrastructure.InMemory.Events.Publisher.csproj">
+      <Project>{a1f001b1-5093-494d-a04f-c7e4b65b320a}</Project>
+      <Name>Infrastructure.InMemory.Events.Publisher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queries\Handlers\Queries.Handlers.csproj">
+      <Project>{dba41501-346b-4ae6-8d65-982aaa63e58e}</Project>
+      <Name>Queries.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queries\Queries\Queries.csproj">
+      <Project>{fe1c5db2-c6c6-4de5-b493-8320f0f20df0}</Project>
+      <Name>Queries</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Website\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Website\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Website\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58682</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/SimpleCQRSHypermedia</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets'))" />
+  </Target>
+  <Import Project="..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets" Condition="Exists('..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

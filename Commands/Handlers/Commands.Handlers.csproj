@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{65A9A69B-C58C-440C-828C-28AC5EB0F571}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commands.Handlers</RootNamespace>
+    <AssemblyName>Commands.Handlers</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Inventory\InventoryCommandHandlers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\CQRS\Commands\Handlers\Infrastructure.CQRS.Commands.Handlers.csproj">
+      <Project>{D9357F83-500F-46FB-8187-C36E009F1241}</Project>
+      <Name>Infrastructure.CQRS.Commands.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commands\Commands.csproj">
+      <Project>{577B6988-5E7C-4E10-B144-1FCFDCFDF735}</Project>
+      <Name>Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.csproj">
+      <Project>{4D60B98D-E114-44ED-A195-CC9CFF3E255F}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\CQRS\Commands\Commands\Infrastructure.CQRS.Commands.csproj">
+      <Project>{F6A05DE5-7E7A-455E-BA1E-D9FBB27F634C}</Project>
+      <Name>Infrastructure.CQRS.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\CQRS\Domain\Infrastructure.CQRS.Domain.csproj">
+      <Project>{E760A16C-8482-425D-977B-FB2287859FCC}</Project>
+      <Name>Infrastructure.CQRS.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\CQRS\Commands\Repository\Infrastructure.CQRS.Commands.Repository.csproj">
+      <Project>{8D4F88EC-ACD0-4C30-B4C2-87CF4B146C4B}</Project>
+      <Name>Infrastructure.CQRS.Commands.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

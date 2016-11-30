@@ -1,0 +1,11 @@
+﻿<!-- ko with: $data.properties -->
+<div data-bind="foreachproperty: $data">
+    <!-- ko switch -->
+    <!-- ko case: $else -->
+    <div class="row form-group wow fadeInUp animated" data-wow-delay=".1s">
+        <strong><span data-bind="text: $data.key" style="text-transform: capitalize;"></span>:</strong> <span data-bind="text: $data.value"></span>
+    </div>
+    <!-- /ko -->
+    <!-- /ko -->
+</div>
+<!-- /ko -->

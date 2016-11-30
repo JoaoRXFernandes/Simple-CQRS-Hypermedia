@@ -1,0 +1,128 @@
+﻿@using System.Configuration
+<!DOCTYPE html>
+
+<html id="application" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simple CQRS Hypermedia</title>
+
+    <link href="@Url.Content("~/styles/bootstrap.min.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/styles/font-awesome.min.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/styles/animate.css")" rel="stylesheet">
+
+    <link href="@Url.Content("~/styles/collectionEntity/collectionEntity.css")" rel="stylesheet" media="screen">
+    <link href="@Url.Content("~/styles/actions/fields/multiSelectField.css")" rel="stylesheet" media="screen">
+</head>
+
+<body>
+    <div id="root" data-bind="with: root" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Simple CQRS Hypermedia</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div data-bind="with: menu" class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- ko foreach: links -->
+                        <li data-bind="css: { active: $parent.isActiveLink($data) }">
+                            <a href="#" data-bind="click: $parent.executeLink.bind($parent)">
+                                <span data-bind="text: $data.title"></span>
+                            </a>
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach: actions -->
+                        <li>
+                            <a href="#" data-bind="click: $data.execute.bind($data)">
+                                <span data-bind="text: $data.title"></span>
+                            </a>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="padding-top: 60px;">
+        <!-- ko if: errorMessage() -->
+        <div data-bind="alert: { message: errorMessage, type: 'danger' }"></div>
+        <!-- /ko -->
+
+        <!-- ko with: currentResponse -->
+        <section data-bind="css: $data.class().join(' ')">
+            <!-- ko switch -->
+            <!-- ko case: $data instanceof CollectionEntity -->
+            @Html.Partial(Url.Content("siren/collectionEntity.cshtml"))
+            <!-- /ko -->
+            <!-- ko case: $else -->
+            @Html.Partial(Url.Content("siren/entity.cshtml"))
+            <!-- /ko -->
+            <!-- /ko -->
+        </section>
+        <!-- /ko -->
+
+        <hr />
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Simple CQRS Hypermedia</p>
+        </footer>
+    </div>
+
+    <script src="@Url.Content("~/scripts/vendor/jquery-3.1.1.min.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/underscore.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/moment.min.js")"></script>
+
+    <script src="@Url.Content("~/scripts/vendor/wow.min.js")"></script>
+
+    <script src="@Url.Content("~/scripts/vendor/knockout-3.4.0.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/knockout.mapping-latest.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/knockout.validation.js")"></script>
+    <script src="@Url.Content("~/scripts/vendor/knockout-switch-case.min.js")"></script>
+
+    <script src="@Url.Content("~/scripts/vendor/knockstrap.min.js")"></script>
+    <script src="@Url.Content("~/scripts/knockout/modalBinding.js")"></script>
+    <script src="@Url.Content("~/scripts/knockout/forEachPropertyBinding.js")"></script>
+
+    <script src="@Url.Content("~/scripts/knockout/mapping/sirenMappings.js")"></script>
+
+    <script src="@Url.Content("~/scripts/siren/entity.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/action.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/field.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/actions/fields/multiSelectField.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/actions/fields/multiSelectFieldOption.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/link.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/properties.js")"></script>
+
+    <script src="@Url.Content("~/scripts/siren/entities/actionEntity.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/entities/collections/collectionEntity.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/entities/collections/collectionEntityItem.js")"></script>
+
+    <script src="@Url.Content("~/scripts/siren/entities/root/root.js")"></script>
+    <script src="@Url.Content("~/scripts/siren/entities/root/menu.js")"></script>
+
+    <script src="@Url.Content("~/scripts/application.js")"></script>
+
+    <input type="hidden" id="rootUrl" value="@ConfigurationManager.AppSettings["rootUrl"]" />
+    <script type="text/javascript">
+        new WOW().init();
+
+        ko.validation.registerExtenders();
+        ko.validation.init({ insertMessages: true });
+
+        var postbox = new ko.subscribable();
+        var hypermediaEngine = new Application();
+
+        ko.applyBindings(hypermediaEngine, document.getElementById("application"));
+        new SirenLink({ href: document.getElementById("rootUrl").value }, "application").execute();
+    </script>
+</body>
+</html>

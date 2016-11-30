@@ -1,0 +1,4 @@
+﻿<!-- ko if: $data.type() == 'number' -->
+<label class="sr-only" data-bind="text: title, attr: { for: name }"></label>
+<input data-bind="value: $data.value, attr: { name: name, type: type, placeholder: title, min: min, max: max, step: step }" class="form-control">
+<!-- /ko -->

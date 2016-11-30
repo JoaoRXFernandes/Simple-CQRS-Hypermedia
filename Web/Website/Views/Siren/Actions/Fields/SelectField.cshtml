@@ -1,0 +1,14 @@
+﻿<!-- ko if: $data.type == 'select' -->
+<select data-bind="options: $data.options,
+                    optionsText: function(item) { return item.value },
+                    optionsValue: function(item) { return item.key },
+                    value: $data.value,
+                    valueAllowUnset: true,
+                    optionsAfterRender: function (option, item) {
+                                                    ko.applyBindingsToNode(option, {
+                                                        disable: item.key === ''
+                                                    }, item);
+                                            },
+                    attr: { name: name, placeholder: title }" class="form-control">
+</select>
+<!-- /ko -->
